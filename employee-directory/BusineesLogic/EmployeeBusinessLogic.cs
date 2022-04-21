@@ -16,7 +16,7 @@ namespace employee_directory.BusineesLogic
                 var employees = context.Employees.Select(x => new EmployeeViewModel
                 {
                     EmployeeNumber = x.EmployeeNumber,
-                    TitleID = x.TitleID,
+                    TitleName = x.Title.TitleName,
                     FirstName = x.FirstName,
                     LastName = x.LastName,
                     DateOfBirth = x.DateOfBirth,
@@ -25,8 +25,8 @@ namespace employee_directory.BusineesLogic
                     EmailAddress = x.EmailAddress,
                     IsActive = true,
                     IsDeleted = false,
-                    PositionID = x.PositionID,
-                    DepartmentID = x.DepartmentID
+                    PositionName = x.Position.PositionName,
+                    DepartmentName = x.Department.DepartmentName
                 }).ToList();
                 return employees;
             }

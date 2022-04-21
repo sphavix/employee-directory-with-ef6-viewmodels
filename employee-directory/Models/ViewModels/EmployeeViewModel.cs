@@ -15,6 +15,7 @@ namespace employee_directory.Models.ViewModels
 
         [Required]
         [Display(Name = "Title")]
+        public string TitleName { get; set; }
         public int TitleID { get; set; }
 
         [Required]
@@ -44,10 +45,12 @@ namespace employee_directory.Models.ViewModels
 
         [Required]
         [Display(Name = "Position")]
+        public string PositionName { get; set; }
         public int PositionID { get; set; }
 
         [Required]
         [Display(Name = "Department")]
+        public string DepartmentName { get; set; }
         public int DepartmentID { get; set; }
 
         public virtual Title Title { get; set; }
