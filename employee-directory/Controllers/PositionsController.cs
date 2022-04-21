@@ -9,40 +9,42 @@ using System.Web.Mvc;
 
 namespace employee_directory.Controllers
 {
-    public class TitlesController : Controller
+    public class PositionsController : Controller
     {
-        private TitleBusinessLogic titleBusiness = new TitleBusinessLogic();
+        private PositionBusinessLogic positionBusiness = new PositionBusinessLogic();
         public ActionResult Index()
         {
-            var titles = titleBusiness.GetTitles();
-            return View(titles.AsQueryable());
+            var positions = positionBusiness.GetPositions();
+            return View(positions.AsQueryable());
         }
 
-        // GET: Titles/Details/5
+        // GET: Positions/Details/5
         public ActionResult Details(int? id)
         {
             if(id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var title = titleBusiness.GetTitle(Convert.ToInt16(id));
-            return View(title);
+            var position = positionBusiness.GetPosition(Convert.ToInt16(id));
+            return View(position);
         }
 
-        // GET: Titles/Create
+        // GET: Positions/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Titles/Create
+        // POST: Positions/Create
         [HttpPost]
-        public ActionResult Create(TitleViewModel model)
+        public ActionResult Create(PositionViewModel model)
         {
             try
             {
-                if(ModelState.IsValid)
-                    titleBusiness.AddTitle(model);
+                if (ModelState.IsValid)
+                {
+                    positionBusiness.AddPosition(model);
+                }
                 return RedirectToAction("Index");
             }
             catch
@@ -51,24 +53,24 @@ namespace employee_directory.Controllers
             }
         }
 
-        // GET: Titles/Edit/5
+        // GET: Positions/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var title = titleBusiness.GetTitle(Convert.ToInt16(id));
-            return View(title);
+            var position = positionBusiness.GetPosition(Convert.ToInt16(id));
+            return View(position);
         }
 
-        // POST: Titles/Edit/5
+        // POST: Positions/Edit/5
         [HttpPost]
-        public ActionResult Edit(TitleViewModel model)
+        public ActionResult Edit(PositionViewModel model)
         {
             try
             {
-                titleBusiness.EditTitle(model);
+                positionBusiness.EditPosition(model);
                 return RedirectToAction("Index");
             }
             catch
@@ -77,25 +79,25 @@ namespace employee_directory.Controllers
             }
         }
 
-        // GET: Titles/Delete/5
+        // GET: Positions/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var title = titleBusiness.GetTitle(Convert.ToInt16(id));
-            return View(title);
+            var position = positionBusiness.GetPosition(Convert.ToInt16(id));
+            return View(position);
         }
 
-        // POST: Titles/Delete/5
+        // POST: Positions/Delete/5
         [HttpPost]
         public ActionResult Delete(int id)
         {
             try
             {
-                var Id = titleBusiness.GetTitleID(Convert.ToInt16(id));
-                titleBusiness.DeleteTitle(Id);
+                int Id = positionBusiness.GetPositionID(id);
+                positionBusiness.DeletePosition(Id);
                 return RedirectToAction("Index");
             }
             catch
