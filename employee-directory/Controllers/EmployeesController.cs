@@ -22,7 +22,7 @@ namespace employee_directory.Controllers
             return View(employees.AsQueryable());
         }
 
-        // GET: Employees/Details/5
+        
         public ActionResult Details(int? id)
         {
             if(id == null)

@@ -5,12 +5,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h3 class="glyphicon glyphicon-folder-open">Employee List</h3>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table class="table table-condensed table-hover">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.DepartmentName)
@@ -39,40 +39,42 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.DepartmentName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PositionName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TitleName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateOfBirth)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IdentityNumber)
-        </td>
-        
-        <td>
-            @Html.DisplayFor(modelItem => item.EmailAddress)
-        </td>
-       
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EmployeeNumber }) |
-            @Html.ActionLink("Details", "Details", new { id=item.EmployeeNumber }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EmployeeNumber })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartmentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PositionName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TitleName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfBirth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdentityNumber)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailAddress)
+            </td>
+
+            <td>
+                <a class="details" href="javascript:;">Details</a>
+                @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeNumber }) |
+                @Html.ActionLink("Details", "Details", new { id = item.EmployeeNumber }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.EmployeeNumber })
+            </td>
+        </tr>
+    }
 
 </table>
