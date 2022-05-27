@@ -138,15 +138,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202204210631110_Initial.cs" />
-    <Compile Include="Migrations\202204210631110_Initial.Designer.cs">
-      <DependentUpon>202204210631110_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202204210719139_DeletedTable.cs" />
-    <Compile Include="Migrations\202204210719139_DeletedTable.Designer.cs">
-      <DependentUpon>202204210719139_DeletedTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\EmployeeDirectoryDbContext.cs" />
@@ -229,14 +220,6 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202204210631110_Initial.resx">
-      <DependentUpon>202204210631110_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202204210719139_DeletedTable.resx">
-      <DependentUpon>202204210719139_DeletedTable.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
